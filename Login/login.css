@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100dvh;
+  background-color: #14213d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 70px;
+  width: auto;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2.5rem;
+  height: auto;
+
+  border-radius: 50px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  color: #fca311;
+}
+
+input {
+  margin-top: 30px;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #e5e5e5;
+  outline: none;
+
+  transition: 0.3s ease;
+}
+
+input:focus {
+  transform: scale(1.1);
+  border-color: #fca311;
+}
+
+.choice {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+label {
+  display: block;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  background-color: #fca311;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+
+  transition: 0.3s ease;
+}
+
+button:hover {
+  color: #fca311;
+  background-color: #14213d;
+}
