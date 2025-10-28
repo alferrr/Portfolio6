@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Card interaction - works on ALL screen sizes
+  //card
   document.querySelectorAll(".cardlink").forEach((cardLink) => {
     cardLink.addEventListener("click", (e) => {
       e.preventDefault();
