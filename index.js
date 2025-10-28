@@ -1,5 +1,3 @@
-//aos
-
 document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
     duration: 800,
@@ -7,12 +5,36 @@ document.addEventListener("DOMContentLoaded", () => {
     offset: 100,
   });
 
-  // slider - only on desktop
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      // Don't prevent default for card links
+      if (this.classList.contains("cardlink")) return;
+
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+
+      if (targetId === "#") return; // Skip empty fragments
+
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
+  // Slider - only on desktop
   if (window.innerWidth >= 768) {
     new Swiper(".card", {
       loop: true,
       spaceBetween: 30,
       autoHeight: true,
+      allowTouchMove: true,
+      touchStartPreventDefault: false,
 
       pagination: {
         el: ".swiper-pagination",
@@ -37,25 +59,29 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       },
     });
-  } // Close the if statement here
+  }
 
-  // These should work on ALL screen sizes (mobile + desktop)
+  // Card interaction - works on ALL screen sizes
   document.querySelectorAll(".cardlink").forEach((cardLink) => {
     cardLink.addEventListener("click", (e) => {
-      e.preventDefault(); // Stop the link from navigating
+      e.preventDefault();
+      e.stopPropagation();
     });
   });
 
   document.querySelectorAll(".cardbtn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault(); // stop the <a> link from navigating
+      e.preventDefault();
+      e.stopPropagation();
       const cardLink = btn.closest(".cardlink");
       cardLink.classList.toggle("show-details");
     });
   });
 
   // Table heading animations
-  const headings = document.querySelectorAll(".table h1");
+  const headings = document.querySelectorAll(
+    ".table h1, .references-section h1"
+  );
 
   const observer = new IntersectionObserver(
     (entries) => {
