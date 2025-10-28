@@ -664,16 +664,16 @@ thead tr {
 .table h1::after {
   content: "";
   display: block;
-  width: 0; /* start collapsed */
+  width: 0;
   height: 4px;
   margin: 8px auto 0;
   background-color: var(--uscgold);
   border-radius: 2px;
-  transition: width 1.5s ease-in-out; /* smooth animation */
+  transition: width 1.5s ease-in-out;
 }
 
 .table h1.animate::after {
-  width: 70%; /* final width when triggered */
+  width: 70%;
 }
 
 @media (max-width: 768px) {
@@ -706,6 +706,75 @@ thead tr {
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
 }
+
+.references-section {
+  background: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.references-section h1 {
+  font-size: 2.5rem;
+  color: var(--uscgreen);
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.references-section h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 10px auto 0;
+  background-color: var(--uscgold);
+  border-radius: 2px;
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.references-section h1.animate::after {
+  transform: scaleX(1);
+}
+
+.reference-list {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  background: white;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  line-height: 1.6;
+}
+
+.reference-list a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.reference-list a:hover {
+  text-decoration: underline;
+}
+
+.reference-list p {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.reference-list p:hover {
+  transform: scale(1.05);
+}
+
+.reference-list p i {
+  color: var(--uscgreen);
+  font-style: italic;
+}
+
 /* LAST MINUTE TWEAKS */
 
 .types h2,
@@ -770,6 +839,10 @@ thead tr {
     max-width: 100%;
     margin: 0 auto 35px;
     padding: 20px 20px;
+  }
+
+  .cards .blk .cardlink {
+    border-color: var(--uscgreen);
   }
 
   .swiper-wrapper {
