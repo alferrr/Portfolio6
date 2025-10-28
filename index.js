@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // aos
   AOS.init({
     duration: 800,
     once: false,
     offset: 100,
   });
 
-  // Smooth scroll for navigation links
+  // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       // Don't prevent default for card links
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Slider - only on desktop
+  // slider
   if (window.innerWidth >= 768) {
     new Swiper(".card", {
       loop: true,
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Table heading animations
+  //line under h1s
   const headings = document.querySelectorAll(
     ".table h1, .references-section h1"
   );

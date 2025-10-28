@@ -777,6 +777,118 @@ thead tr {
   font-style: italic;
 }
 
+.about {
+  position: relative;
+  min-height: 100dvh;
+
+  background: #f7f8fa;
+}
+
+#me {
+  position: absolute;
+  bottom: 0;
+  height: 600px;
+
+  border-top-right-radius: 50px;
+}
+
+.about header {
+  justify-content: space-between;
+  color: var(--uscgreen);
+}
+.about nav ul li a {
+  padding-top: 20px;
+  color: var(--uscgreen);
+}
+
+.about .aline {
+  width: 25%;
+  height: 5px;
+  border-radius: 10px;
+  background: var(--uscgold);
+}
+
+.name {
+  color: var(--uscgreen);
+  font-size: 100px;
+
+  position: absolute;
+  top: 200px;
+  right: 50px;
+}
+
+.line2 {
+  height: 5px;
+  width: 47%;
+  background-color: var(--uscgold);
+  border-radius: 50px;
+
+  position: absolute;
+  right: 0;
+  top: 315px;
+}
+
+.about p {
+  color: black;
+  font-size: 15px;
+  text-align: justify;
+  width: 600px;
+
+  position: absolute;
+  right: 50px;
+  top: 350px;
+}
+
+.icons {
+  display: flex;
+  gap: 100px;
+  position: absolute;
+  bottom: 100px;
+  right: 170px;
+}
+
+.icons a img {
+  height: 40px;
+  transition: all 0.3s ease;
+}
+.gmail,
+.fb,
+.ig {
+  transition: all 0.3s ease;
+}
+.gmail:hover {
+  filter: drop-shadow(0 0 10px red);
+  transform: scale(1.1);
+}
+.fb:hover {
+  filter: drop-shadow(0 0 10px blue);
+  transform: scale(1.1);
+}
+.ig:hover {
+  filter: drop-shadow(0 0 10px rgb(232, 65, 226));
+  transform: scale(1.1);
+}
+
+.tooltip {
+  position: absolute;
+  left: -80px;
+  top: 50px; /* Position below the icon */
+  /* transform: translateX(-50%) translateY(10px); Start slightly below (hidden) */
+  color: var(--uscgreen);
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show tooltip on hover - slides in from right */
+.gmail:hover .tooltip,
+.fb:hover .tooltip,
+.ig:hover .tooltip {
+  opacity: 1;
+}
+
 /* LAST MINUTE TWEAKS */
 
 .types h2,
@@ -878,6 +990,50 @@ thead tr {
   table {
     min-width: auto;
     width: 100%;
+  }
+
+  .about nav ul li a {
+    padding-top: 5px;
+  }
+  .about nav ul li a:hover {
+    color: var(--uscgold);
+  }
+
+  .about .aline {
+    width: 100%;
+  }
+
+  .name {
+    position: static;
+    font-size: 70px;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .line2 {
+    display: none;
+  }
+
+  .about p {
+    position: static;
+    width: 300px;
+
+    margin: 20px auto;
+  }
+
+  #me {
+    display: none;
+  }
+
+  .icons {
+    position: static;
+    justify-content: center;
+    padding-top: 30px;
+    gap: 50px;
+  }
+
+  .tooltip {
+    left: -40px;
   }
 }
 
