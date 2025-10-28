@@ -800,6 +800,9 @@ thead tr {
   padding-top: 20px;
   color: var(--uscgreen);
 }
+.about nav ul li a:hover {
+  color: var(--uscgold);
+}
 
 .about .aline {
   width: 25%;
