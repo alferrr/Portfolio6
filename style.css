@@ -104,7 +104,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: rgb(255, 83, 255);
+  color: var(--uscgold);
 }
 
 .title {
@@ -165,7 +165,7 @@ nav ul li a:hover {
 
 .getstarted .block {
   border: 5px solid;
-  border-color: #517047;
+  border-color: var(--uscgreen);
 }
 #block1 {
   position: relative;
@@ -244,7 +244,7 @@ nav ul li a:hover {
 }
 
 .intro p {
-  font-size: clamp(10px, 4vw, 20px);
+  font-size: 20px;
   text-align: center;
   color: black;
 
@@ -258,111 +258,114 @@ nav ul li a:hover {
 .contents {
   position: relative;
   min-height: 70vh;
-  background: #007639;
+  padding: 60px 0;
   background: linear-gradient(
     337deg,
-    rgba(0, 118, 57, 1) 9%,
+    rgb(0, 93, 45) 9%,
     rgba(252, 195, 39, 1) 100%
   );
-}
-
-.contents h2 {
-  padding-top: 50px;
-  text-align: center;
-  color: white;
-  font-size: 50px;
-  animation: fadeup ease;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
-}
-.contents .blocks {
-  padding-top: 20px;
-  gap: 50px;
-}
-
-.contents .block {
-  position: relative;
-  width: 250px;
-  border-radius: 20px;
-  background-color: white;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-
-  transition: all 0.3s ease;
 }
 
-/*#spr::before {
+/* === Section Title === */
+.contents h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.contents h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--uscgold);
+  border-radius: 2px;
+  margin: 10px auto 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.6s ease-in-out;
+}
+
+.contents h2.animate::after {
+  transform: scaleX(1);
+}
+
+/* === Block Container === */
+.contents .blocks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+/* === Individual Block (Card Style) === */
+.contents .block {
+  background-color: white;
+  width: 280px;
+  min-height: 250px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold top border accent */
+.contents .block::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
+  height: 6px;
   width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: slideshow 18s infinite;
-  z-index: -1;
-  transition: opacity 1s ease-in-out;
-
-  background-color: rgba(0, 0, 0, 0.5);
-  background-blend-mode: multiply;
-}*
-
-@keyframes slideshow {
-  0% {
-    background-image: url(images/sprctr.jpg);
-  }
-  33% {
-    background-image: url(images/mainframe.webp);
-  }
-  66% {
-    background-image: url(images/server.webp);
-  }
-  99% {
-    background-image: url(images/workstation.jpg);
-  }
-}
-*/
-.contents h3 {
-  text-align: center;
-  color: var(--uscyellow);
-  transition: all 0.3s ease;
+  background: var(--uscgold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
 }
 
-#spr h3 {
-  transform: translateY(90px);
-}
-#cmp h3 {
-  transform: translateY(45px);
-}
-#rfr h3 {
-  transform: translateY(45px);
-}
-
-.contents p {
-  color: var(--uscyellow);
-  font-size: 12px;
-  text-align: justify;
-  margin: 10px;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-#spr:hover h3,
-#cmp:hover h3,
-#rfr:hover h3 {
-  transform: translateY(0);
-}
-
+/* Hover effects */
 .contents .block:hover {
-  transform: scale(1.1);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
+.contents .block:hover::before {
+  transform: scaleX(1);
+}
+
+/* Headings inside blocks */
+.contents h3 {
+  font-size: 1.3rem;
+  color: var(--uscgreen);
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+/* Paragraph text */
+.contents p {
+  color: #333;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.85;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Hover color changes */
+.contents .block:hover h3 {
+  color: var(--uscyellow);
+}
 .contents .block:hover p {
   opacity: 1;
 }
@@ -494,6 +497,8 @@ nav ul li a:hover {
   border: 2px solid var(--uscgreen);
   transform: rotate(-45deg);
   transition: 0.3s ease;
+
+  pointer-events: auto;
 }
 
 .blk .cardlink:hover .cardbtn {
@@ -522,8 +527,263 @@ nav ul li a:hover {
   color: var(--uscgold);
 }
 
-@media screen and(max-width: 768px) {
-  .container {
+.card-details {
+  display: none;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  transition: opacity 0.3s ease;
+}
+
+/* When active, hide the image and show the description */
+.cardlink.show-details .cardimg,
+.cardlink.show-details .badge {
+  opacity: 0;
+  display: none;
+}
+
+.cardlink.show-details .card-details {
+  display: block;
+  opacity: 1;
+}
+
+/* Optional: Change the arrow when showing details */
+.cardlink.show-details .cardbtn {
+  transform: rotate(135deg); /* arrow turns back */
+  background: var(--uscgreen);
+  color: var(--uscgold);
+}
+
+.cardimg,
+.badge {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cardlink.show-details .cardimg,
+.cardlink.show-details .badge {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.card-details {
+  display: block;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s,
+    max-height 0.7s ease 0.5s;
+}
+
+.cardlink.show-details .card-details {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 600px;
+}
+
+.table {
+  position: relative;
+  min-height: 100dvh;
+  background-color: #f7f8fa;
+  color: #333;
+  padding: 40px;
+}
+
+.table h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: var(--uscgreen);
+}
+
+.table .table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1500px;
+  margin: 0 auto;
+  animation: fadeleft linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+}
+
+th,
+td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--uscgreen);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+tr:hover {
+  background-color: rgba(255, 204, 0, 0.1);
+  transition: background-color 0.25s ease;
+}
+
+td:first-child {
+  font-weight: 600;
+  color: var(--uscgreen);
+}
+
+/* Accent line below table header */
+thead tr {
+  border-bottom: 4px solid var(--uscyellow);
+}
+
+/* Optional: decorative line under main heading */
+.table h1::after {
+  content: "";
+  display: block;
+  width: 0; /* start collapsed */
+  height: 4px;
+  margin: 8px auto 0;
+  background-color: var(--uscgold);
+  border-radius: 2px;
+  transition: width 1.5s ease-in-out; /* smooth animation */
+}
+
+.table h1.animate::after {
+  width: 70%; /* final width when triggered */
+}
+
+@media (max-width: 768px) {
+  th,
+  td {
+    padding: 12px;
+    font-size: 0.9em;
+  }
+}
+
+.cnc {
+  position: relative;
+  min-height: 50dvh;
+  background: #01451e;
+  background: linear-gradient(
+    337deg,
+    rgba(1, 69, 30, 1) 0%,
+    rgba(88, 145, 51, 1) 35%,
+    rgba(221, 185, 41, 1) 68%,
+    rgba(252, 195, 39, 1) 100%
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table h1 {
+  animation: faderight linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+/* LAST MINUTE TWEAKS */
+
+.types h2,
+.container,
+.cards,
+.blk .contents h2,
+.intro p,
+.intro h2,
+.block,
+.table h1,
+.table .table-container {
+  animation: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  header {
     display: block;
+  }
+  header h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  nav ul {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .blocks {
+    display: block;
+  }
+
+  .instructions {
+    padding-bottom: 20px;
+  }
+
+  .intro p {
+    margin: 50px;
+    text-align: center;
+  }
+
+  .contents .blocks {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    animation: none !important;
+  }
+
+  .card {
+    display: block !important;
+    max-width: 100%;
+    margin: 0 20px 35px;
+    padding: 20px 10px;
+  }
+
+  .swiper-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    transform: none !important;
+    gap: 20px;
+  }
+
+  .swiper-slide {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .swiper-pagination,
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+
+  .cnc h1 {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    max-width: 1200px;
+    margin: 0 auto 35px;
+    padding: 20px 60px;
   }
 }
