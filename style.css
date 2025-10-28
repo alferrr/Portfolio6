@@ -783,7 +783,8 @@ thead tr {
 @media (min-width: 768px) {
   .card {
     max-width: 1200px;
+    width: 90%;
     margin: 0 auto 35px;
-    padding: 20px 60px;
+    padding: 20px 0;
   }
 }
