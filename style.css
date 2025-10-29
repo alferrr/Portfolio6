@@ -278,7 +278,6 @@ nav ul li a:hover {
   justify-content: center;
 }
 
-/* === Section Title === */
 .contents h2 {
   font-size: 2.5rem;
   text-align: center;
@@ -305,7 +304,6 @@ nav ul li a:hover {
   transform: scaleX(1);
 }
 
-/* === Block Container === */
 .contents .blocks {
   display: flex;
   justify-content: center;
@@ -314,7 +312,6 @@ nav ul li a:hover {
   padding: 0 40px;
 }
 
-/* === Individual Block (Card Style) === */
 .contents .block {
   background-color: white;
   width: 280px;
@@ -328,7 +325,6 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
-/* Gold top border accent */
 .contents .block::before {
   content: "";
   position: absolute;
@@ -342,7 +338,6 @@ nav ul li a:hover {
   transition: transform 0.4s ease;
 }
 
-/* Hover effects */
 .contents .block:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
@@ -352,7 +347,6 @@ nav ul li a:hover {
   transform: scaleX(1);
 }
 
-/* Headings inside blocks */
 .contents h3 {
   font-size: 1.3rem;
   color: var(--uscgreen);
@@ -360,7 +354,6 @@ nav ul li a:hover {
   transition: color 0.3s ease;
 }
 
-/* Paragraph text */
 .contents p {
   color: #333;
   font-size: 0.85rem;
@@ -370,7 +363,6 @@ nav ul li a:hover {
   transition: all 0.3s ease;
 }
 
-/* Hover color changes */
 .contents .block:hover h3 {
   color: var(--uscyellow);
 }
@@ -544,7 +536,6 @@ nav ul li a:hover {
   transition: opacity 0.3s ease;
 }
 
-/* When active, hide the image and show the description */
 .cardlink.show-details .cardimg,
 .cardlink.show-details .badge {
   opacity: 0;
@@ -556,9 +547,8 @@ nav ul li a:hover {
   opacity: 1;
 }
 
-/* Optional: Change the arrow when showing details */
 .cardlink.show-details .cardbtn {
-  transform: rotate(135deg); /* arrow turns back */
+  transform: rotate(135deg);
   background: var(--uscgreen);
   color: var(--uscgold);
 }
@@ -657,12 +647,10 @@ td:first-child {
   color: var(--uscgreen);
 }
 
-/* Accent line below table header */
 thead tr {
   border-bottom: 4px solid var(--uscyellow);
 }
 
-/* Optional: decorative line under main heading */
 .table h1::after {
   content: "";
   display: block;
@@ -800,6 +788,7 @@ thead tr {
   padding-top: 20px;
   color: var(--uscgreen);
 }
+
 .about nav ul li a:hover {
   color: var(--uscgold);
 }
@@ -875,8 +864,7 @@ thead tr {
 .tooltip {
   position: absolute;
   left: -80px;
-  top: 50px; /* Position below the icon */
-  /* transform: translateX(-50%) translateY(10px); Start slightly below (hidden) */
+  top: 50px;
   color: var(--uscgreen);
   font-size: 14px;
   white-space: nowrap;
@@ -885,7 +873,6 @@ thead tr {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Show tooltip on hover - slides in from right */
 .gmail:hover .tooltip,
 .fb:hover .tooltip,
 .ig:hover .tooltip {
@@ -909,7 +896,7 @@ thead tr {
 @media screen and (max-width: 768px) {
   header {
     display: block;
-    padding: 10px 20px; /* Add horizontal padding */
+    padding: 10px 20px;
   }
   header h1 {
     font-size: 30px;
@@ -918,17 +905,18 @@ thead tr {
 
   .headerline {
     width: 100%;
+    top: 80px;
   }
 
   nav ul {
     gap: 20px;
     justify-content: center;
-    padding: 0 10px; /* Add padding */
+    padding: 0 10px;
   }
 
   .blocks {
     display: block;
-    width: 100%; /* Constrain width */
+    width: 100%;
   }
 
   .instructions {
@@ -936,19 +924,19 @@ thead tr {
   }
 
   .intro p {
-    margin: 50px 20px; /* Reduce horizontal margin */
+    margin: 50px 20px;
     text-align: center;
   }
 
   .contents .blocks {
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Add this */
+    width: 100%;
   }
 
   .container {
     animation: none !important;
-    width: 100%; /* Add this */
+    width: 100%;
   }
 
   .card {
@@ -967,7 +955,7 @@ thead tr {
     flex-direction: column !important;
     transform: none !important;
     gap: 20px;
-    width: 100%; /* Add this */
+    width: 100%;
   }
 
   .swiper-slide {
@@ -983,7 +971,7 @@ thead tr {
 
   .cnc h1 {
     text-align: center;
-    padding: 0 20px; /* Add padding */
+    padding: 0 20px;
   }
 
   .table-container {
