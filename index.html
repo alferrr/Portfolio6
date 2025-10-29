@@ -17,7 +17,10 @@
     <div class="card">
       <form id="loginForm">
         <h1>What's your name?</h1>
-        <input type="text" placeholder="Enter your name..." id="name" />
+        <div class="input-group">
+          <input type="text" id="name" placeholder=" " required />
+          <label for="name">Enter your name...</label>
+        </div>
         <div class="choice">
           <label>
             <input type="radio" name="role" value="student" />

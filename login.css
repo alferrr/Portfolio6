@@ -73,6 +73,46 @@ input:focus {
   border-color: var(--uscgold);
 }
 
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+/* Base input style (keep your existing styles) */
+.input-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #e5e5e5;
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
+  transition: 0.3s ease;
+  background: transparent;
+}
+
+.input-group input:focus {
+  border-color: var(--uscgold);
+  transform: scale(1.02);
+}
+
+/* Floating label styling */
+.input-group label {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  color: #999;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Move the label when focused or when input has text */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: 15px;
+  font-size: 13px;
+  color: var(--uscgreen);
+}
 .choice {
   margin-top: 0px;
   display: flex;
@@ -80,7 +120,7 @@ input:focus {
   gap: 50px;
 }
 
-label {
+.choice label {
   display: block;
   text-align: center;
 }
