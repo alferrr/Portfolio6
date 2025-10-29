@@ -893,6 +893,10 @@ thead tr {
   animation: none !important;
 }
 
+.about .aboutnav {
+  color: var(--uscgold);
+}
+
 @media screen and (max-width: 768px) {
   header {
     display: block;
@@ -912,6 +916,14 @@ thead tr {
     gap: 20px;
     justify-content: center;
     padding: 0 10px;
+  }
+
+  nav ul li a:hover {
+    color: white;
+  }
+
+  .about nav ul li a:hover {
+    color: var(--uscgreen);
   }
 
   .blocks {
@@ -987,7 +999,7 @@ thead tr {
     padding-top: 5px;
   }
   .about nav ul li a:hover {
-    color: var(--uscgold);
+    color: var(--uscgreen);
   }
 
   .about .aline {
@@ -1023,8 +1035,15 @@ thead tr {
     gap: 50px;
   }
 
+  .gmail:hover,
+  .fb:hover,
+  .ig:hover {
+    filter: none;
+  }
+
   .tooltip {
     left: -40px;
+    top: -30px;
   }
 }
 

@@ -1,4 +1,106 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // login page
+  const loginForm = document.getElementById("loginForm");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const roleInput = document.querySelector('input[name="role"]:checked');
+
+      if (!name) {
+        alert("Please enter your name!");
+        return;
+      }
+
+      if (!roleInput) {
+        alert("Please select a role!");
+        return;
+      }
+
+      const role = roleInput.value;
+
+      localStorage.setItem("userName", name);
+      localStorage.setItem("userRole", role);
+
+      // ikuan sa sheets
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbyvcG8s9Dj5u1-Wqv5svkTsVTASiInYAb3L4KRVcaRDM-6VMYb_rRSLVSjcVSbLVFzU/exec";
+
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("role", role);
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+          window.location.href = "portfolio.html";
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          window.location.href = "portfolio.html";
+        });
+    });
+  }
+
+  //typing
+
+  const subtitle = document.querySelector("#coverpage .title h2");
+  const storedName = localStorage.getItem("userName");
+  const storedRole = localStorage.getItem("userRole");
+
+  if (subtitle && storedName && storedRole) {
+    const originalText = subtitle.textContent;
+
+    function typeText(text, callback) {
+      subtitle.textContent = "";
+      let i = 0;
+      const typing = setInterval(() => {
+        subtitle.textContent += text.charAt(i);
+        i++;
+        if (i === text.length) {
+          clearInterval(typing);
+          if (callback) callback();
+        }
+      }, 80);
+    }
+
+    function eraseText(callback) {
+      let text = subtitle.textContent;
+      const erasing = setInterval(() => {
+        text = text.slice(0, -1);
+        subtitle.textContent = text;
+        if (text.length === 0) {
+          clearInterval(erasing);
+          if (callback) callback();
+        }
+      }, 40);
+    }
+
+    if (storedRole === "teacher") {
+      typeText(`Hello, Professor ${storedName}!`, () => {
+        setTimeout(() => {
+          eraseText(() => {
+            typeText(originalText);
+          });
+        }, 2500);
+      });
+    } else {
+      typeText(`Hello, ${storedName}!`, () => {
+        setTimeout(() => {
+          eraseText(() => {
+            typeText(originalText);
+          });
+        }, 2500);
+      });
+    }
+  }
+
   // aos
   AOS.init({
     duration: 800,

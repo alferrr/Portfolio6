@@ -7,10 +7,23 @@
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --green: #517047;
+  --yellow: #ebb441;
+  --khaki: #f5d594;
+
+  --uscgreen: #007639;
+  --uscyellow: #fcc327;
+  --uscgold: #ffcc00;
+}
+
 body {
   position: relative;
   height: 100dvh;
-  background-color: #14213d;
+  background-image: url(images/hero2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   display: flex;
   align-items: center;
@@ -40,7 +53,7 @@ body {
 h1 {
   font-size: 24px;
   text-align: center;
-  color: #fca311;
+  color: var(--uscgreen);
 }
 
 input {
@@ -55,7 +68,7 @@ input {
 
 input:focus {
   transform: scale(1.1);
-  border-color: #fca311;
+  border-color: var(--uscgold);
 }
 
 .choice {
@@ -73,7 +86,7 @@ label {
 button {
   display: block;
   margin: 20px auto 0;
-  background-color: #fca311;
+  background-color: var(--uscgold);
   width: 100%;
   padding: 7px;
   border: none;
@@ -81,10 +94,12 @@ button {
   color: white;
   font-size: 15px;
 
+  cursor: pointer;
+
   transition: 0.3s ease;
 }
 
 button:hover {
-  color: #fca311;
-  background-color: #14213d;
+  color: var(--uscgold);
+  background-color: var(--uscgreen);
 }
