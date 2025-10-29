@@ -6,20 +6,30 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
+      const messageBox = document.getElementById("messageBox");
+      function showMessage(msg, type = "error") {
+        messageBox.textContent = msg;
+        messageBox.className = `message-box ${type} show`;
+      }
+
       const name = document.getElementById("name").value.trim();
       const roleInput = document.querySelector('input[name="role"]:checked');
 
       if (!name) {
-        alert("Please enter your name!");
+        showMessage("Please enter your name!");
         return;
       }
 
       if (!roleInput) {
-        alert("Please select a role!");
+        showMessage("Please select a role!");
         return;
       }
 
       const role = roleInput.value;
+
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      submitButton.innerHTML = '<span class="spinner"></span> Loading...';
+      submitButton.disabled = true;
 
       localStorage.setItem("userName", name);
       localStorage.setItem("userRole", role);
