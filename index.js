@@ -102,10 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // aos
-  AOS.init({
-    duration: 800,
-    once: false,
-    offset: 100,
+
+  window.addEventListener("load", () => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      offset: 100,
+    });
+
+    setTimeout(() => {
+      AOS.refresh();
+    }, 500);
   });
 
   // smooth scroll
