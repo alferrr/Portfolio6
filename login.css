@@ -20,7 +20,7 @@
 body {
   position: relative;
   height: 100dvh;
-  background-image: url(images/hero2.png);
+  background-image: url(images/hero2.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -78,7 +78,6 @@ input:focus {
   width: 100%;
 }
 
-/* Base input style (keep your existing styles) */
 .input-group input {
   width: 100%;
   border: none;
@@ -95,7 +94,6 @@ input:focus {
   transform: scale(1.02);
 }
 
-/* Floating label styling */
 .input-group label {
   position: absolute;
   top: 50px;
@@ -106,7 +104,6 @@ input:focus {
   transition: 0.3s ease;
 }
 
-/* Move the label when focused or when input has text */
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
   top: 15px;
@@ -154,7 +151,6 @@ button:disabled {
   background-color: var(--uscgreen);
 }
 
-/* Loading spinner animation */
 .spinner {
   display: inline-block;
   width: 12px;
