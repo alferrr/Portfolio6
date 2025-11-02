@@ -128,13 +128,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      // Don't prevent default for card links
       if (this.classList.contains("cardlink")) return;
 
       e.preventDefault();
       const targetId = this.getAttribute("href");
 
-      if (targetId === "#") return; // Skip empty fragments
+      if (targetId === "#") return;
 
       const targetElement = document.querySelector(targetId);
 
